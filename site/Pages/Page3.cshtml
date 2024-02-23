@@ -1,4 +1,4 @@
-﻿@page
+﻿@page 
 @model site.Pages.Page3
 @{
     ViewData["Title"] = "Page3";
@@ -7,12 +7,23 @@
 
 <p class="font">Киберпанк текст привет</p>
 
-<button onclick="onclick() " class="button1 slidein">Тык</button>
-<script>
 
-    function playVideo() {
-        var video = document.getElementById("~/video/Китаец с пистолетом/mp4");
-        video.play();
-    }
+
+<button id="myButton">Нажми меня</button>
+<div id="hiddenElement" style="display:none;">
+    <video id="myVideo" controls src="~/video/Китаец с пистолетом.mp4" style="border: 10px"></video>
+</div>
+
+<script>
+    document.getElementById('myButton').addEventListener('click', function () {
+        var hiddenElement = document.getElementById('hiddenElement');
+        var video = document.getElementById('myVideo');
+        if (hiddenElement.style.display === 'none') {
+            hiddenElement.style.display = 'block';
+            video.play(); // Начинаем воспроизведение видео
+        } else {
+            hiddenElement.style.display = 'none';
+            video.pause(); // При скрытии видео приостанавливаем его воспроизведение
+        }
+    });
 </script>
-@* <video autoplay  controls src="~/video/Китаец с пистолетом.mp4" style="border: 10px"></video> *@
