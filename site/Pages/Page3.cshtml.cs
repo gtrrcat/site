@@ -7,6 +7,14 @@ namespace site.Pages
     {
         public void OnGet()
         {
+
         }
+        public bool flag = false;
+        public void onclick() 
+        {
+            
+            flag = true;
+        }
+
     }
 }
