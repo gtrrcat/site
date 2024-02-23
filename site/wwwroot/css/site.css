@@ -1,0 +1,42 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+.button1 {
+    color: magenta;
+    outline-color: blue;
+    border: 2px solid #FF5733;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #FF5733;
+    cursor: pointer;
+    margin: auto;
+    font-family: "Cyberpunk_RUS_BY_LYAJKA", sans-serif;
+}
+
+@font-face {
+    font-family: "Cyberpunk_RUS_BY_LYAJKA";
+    src: "texts\Cyberpunk_RUS_BY_LYAJKA.ttf" format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
