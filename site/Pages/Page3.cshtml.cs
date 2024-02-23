@@ -7,6 +7,11 @@ namespace site.Pages
     {
         public void OnGet()
         {
+
+        }
+        public void onclick() 
+        { 
+            
         }
     }
 }
