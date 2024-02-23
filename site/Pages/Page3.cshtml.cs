@@ -9,9 +9,12 @@ namespace site.Pages
         {
 
         }
+        public bool flag = false;
         public void onclick() 
-        { 
+        {
             
+            flag = true;
         }
+
     }
 }

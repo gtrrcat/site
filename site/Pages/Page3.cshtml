@@ -7,12 +7,28 @@
 
 <p class="font">Киберпанк текст привет</p>
 
-<button onclick="onclick() " class="button1 slidein">Тык</button>
+@* <button  onclick="playVideo(myVideo)" class="button1 slidein">Тык</button> *@
+<div>
+    <button id="play" onclick="playVideo(video)">
+    play
+    </button>
+</div>
 <script>
+    let video;
+    video = document.querySelector('#12')
+    document.querySelector('#play').onclick = play;
 
-    function playVideo() {
-        var video = document.getElementById("~/video/Китаец с пистолетом/mp4");
+    function play() 
+    {
         video.play();
     }
+   
+    function playVideo(video) {
+       
+        video.play();
+        
+    }
 </script>
-@* <video autoplay  controls src="~/video/Китаец с пистолетом.mp4" style="border: 10px"></video> *@
+<video id="12" style="border: 10px">
+    <source src="~/video/Китаец с пистолетом.mp4" type="video/mp4" />
+    </video> 
