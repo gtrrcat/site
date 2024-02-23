@@ -14,11 +14,14 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    
+	font-family: Arial, sans-serif;
+
 }
 .button1 {
-    color: magenta;
-    outline-color: blue;
+    
+    
     border: 2px solid #FF5733;
     display: inline-block;
     padding: 10px 20px;
@@ -26,17 +29,48 @@ body {
     text-align: center;
     text-decoration: none;
     border-radius: 50%;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #ffffff;
+    color: black;
     border: 2px solid #FF5733;
     cursor: pointer;
     margin: auto;
-    font-family: "Cyberpunk_RUS_BY_LYAJKA", sans-serif;
+    
 }
 
 @font-face {
-    font-family: "Cyberpunk_RUS_BY_LYAJKA";
-    src: "texts\Cyberpunk_RUS_BY_LYAJKA.ttf" format("truetype");
-    font-style: normal;
-    font-weight: normal;
+    font-family: "Stengazeta";
+    src: url("/texts/Cyberpunk_RUS_BY_LYAJKA.ttf"), local("Stengazeta");
+}
+
+.font {
+    font-family: 'Stengazeta',sans-serif;
+    font-size: 50px;
+}
+
+.animation{
+    animation-name:revert;
+}
+
+.slidein {
+    animation-duration: 1s;
+    animation-name: slidein;
+    animation-iteration-count: 1;
+   
+}
+
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+       
+    }
+
+    to {
+        margin-left: 0% ;
+        
+        
+    }
+}
+.header {
+    height: 50px;
+
 }
