@@ -1,8 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using site.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-
+builder.Services.AddDbContext<Context>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("Context")
+    ?? throw new InvalidOperationException("Connection string 'Context' not found.")));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
