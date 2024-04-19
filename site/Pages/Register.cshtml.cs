@@ -9,6 +9,13 @@ namespace site.Pages
         public void OnGet()
         {
         }
+        public async Task<IActionResult> OnPostAsync()
+        {
+            return RedirectToPage("./Rgister");
+        }
+
+        [BindProperty]
+        public User User { get; set; }
         public void AddResponse(User user) 
         {
             Console.WriteLine(user.Name);
