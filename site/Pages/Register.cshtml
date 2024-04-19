@@ -1,5 +1,5 @@
 ﻿@page
-@model site.Pages.Index1Model
+@model site.Pages.RegisterModel
 @{
     ViewData["Title"] = "Регистрация";
 }
@@ -19,17 +19,49 @@
 </style>
 
 <form method="post">
-    @* <div asp-validation-summary="ModelOnly" class="text-danger"></div> *@
+    
     <div class="form-group">
-        <label asp-for="User.Name" class="control-label"></label>
-        <input asp-for="User.Name" class="form-control" />
+        <label asp-for="User.Name" class="control-label "></label>
+        <input asp-for="User.Name" class="form-control" pattern="[А-ЯЁ][а-яё]*" required />
         <span asp-validation-for="User.Name" class="text-danger"></span>
     </div>
+
+    <div class="form-group">
+        <label asp-for="User.Surname" class="control-label"></label>
+        <input asp-for="User.Surname" class="form-control" pattern="[А-ЯЁ][а-яё]*" required />
+        <span asp-validation-for="User.Surname" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="User.Age" class="control-label"></label>
+        <input asp-for="User.Age" class="form-control" min=18 max=99 type="number" required />
+        <span asp-validation-for="User.Age" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="User.Email" class="control-label"></label>
+        <input asp-for="User.Email" class="form-control"  type="email" required />
+        <span asp-validation-for="User.Email" class="text-danger" ></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="User.Password" class="control-label"></label>
+        <input asp-for="User.Password" class="form-control"   required />
+        <span asp-validation-for="User.Password" class="text-danger" ></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="User.PhoneNumber" class="control-label"></label>
+        <input asp-for="User.PhoneNumber" class="form-control"  required />
+        <span asp-validation-for="User.PhoneNumber" class="text-danger" ></span>
+    </div>
+
     <div class="form-group">
         <input type="submit" value="Create" class="btn btn-primary" />
     </div>
 </form>
-<form  id="123" runat="server">
+
+@* <form  id="123" runat="server">
     <p>Имя:     <input pattern="[А-ЯЁ][а-яё]*" type="text" name="name" required/></p>
     <p>Фамилия: <input pattern="[А-ЯЁ][а-яё]*" type="text" name="surname" required/></p>
     <p>Возраст: <input type="number" name="age" min=18 max=99 required/></p>
@@ -37,7 +69,7 @@
     <p>Пароль:  <input type="password" name="password" required/></p>
     <p>Телефон: <input class="tel" type="text" name="tel" required/></p>
     <p><input type="submit"/></p>
-</form>
+</form> *@
 
 <script>
     window.addEventListener("DOMContentLoaded", function() {
