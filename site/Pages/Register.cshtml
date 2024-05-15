@@ -21,39 +21,39 @@
 <form method="post">
     
     <div class="form-group">
-        <label asp-for="User.Name" class="control-label "></label>
-        <input asp-for="User.Name" class="form-control" pattern="[А-ЯЁ][а-яё]*" required />
-        <span asp-validation-for="User.Name" class="text-danger"></span>
+        <label asp-for="newUser.Name" class="control-label "></label>
+        <input asp-for="newUser.Name" class="form-control" pattern="[А-ЯЁ][а-яё]*" required />
+        <span asp-validation-for="newUser.Name" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="User.Surname" class="control-label"></label>
-        <input asp-for="User.Surname" class="form-control" pattern="[А-ЯЁ][а-яё]*" required />
-        <span asp-validation-for="User.Surname" class="text-danger"></span>
+        <label asp-for="newUser.Surname" class="control-label"></label>
+        <input asp-for="newUser.Surname" class="form-control" pattern="[А-ЯЁ][а-яё]*" required />
+        <span asp-validation-for="newUser.Surname" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="User.Age" class="control-label"></label>
-        <input asp-for="User.Age" class="form-control" min=18 max=99 type="number" required />
-        <span asp-validation-for="User.Age" class="text-danger"></span>
+        <label asp-for="newUser.Age" class="control-label"></label>
+        <input asp-for="newUser.Age" class="form-control" min=18 max=99 type="number" required />
+        <span asp-validation-for="newUser.Age" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="User.Email" class="control-label"></label>
-        <input asp-for="User.Email" class="form-control"  type="email" required />
-        <span asp-validation-for="User.Email" class="text-danger" ></span>
+        <label asp-for="newUser.Email" class="control-label"></label>
+        <input asp-for="newUser.Email" class="form-control"  type="email" required />
+        <span asp-validation-for="newUser.Email" class="text-danger" ></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="User.Password" class="control-label"></label>
-        <input asp-for="User.Password" class="form-control"   required />
-        <span asp-validation-for="User.Password" class="text-danger" ></span>
+        <label asp-for="newUser.Password" class="control-label"></label>
+        <input asp-for="newUser.Password" class="form-control"   required />
+        <span asp-validation-for="newUser.Password" class="text-danger" ></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="User.PhoneNumber" class="control-label"></label>
-        <input asp-for="User.PhoneNumber" class="form-control"  required />
-        <span asp-validation-for="User.PhoneNumber" class="text-danger" ></span>
+        <label asp-for="newUser.PhoneNumber" class="control-label"></label>
+        <input asp-for="newUser.PhoneNumber" class="form-control"  required />
+        <span asp-validation-for="newUser.PhoneNumber" class="text-danger" ></span>
     </div>
 
     <div class="form-group">
