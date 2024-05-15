@@ -10,9 +10,12 @@ namespace site.Pages
     public class RegisterModel : PageModel
     {
         private readonly Context _context;
+        private readonly IConfiguration _configuration;
 
-        public RegisterModel (Context context)
+        public RegisterModel (Context context,IConfiguration configuration)
+
         {
+            _configuration = configuration;
             _context = context;
             
         }
@@ -23,12 +26,12 @@ namespace site.Pages
         private const string Key = "EiLCTduaYVxyrjVfw8Kbmw=="; // Здесь укажите ваш ключ шифрования
         private const string IV = "0123456789abcdef"; // Инициализирующий вектор
 
-        public static string Encrypt(string plainText)
+        public string Encrypt(string plainText)
         {
             using (AesCryptoServiceProvider aesAlg = new AesCryptoServiceProvider())
             {
-                aesAlg.Key = Encoding.UTF8.GetBytes(Key);
-                aesAlg.IV = Encoding.UTF8.GetBytes(IV);
+                aesAlg.Key = Encoding.UTF8.GetBytes(_configuration["Crypting:Key"]);
+                aesAlg.IV = Encoding.UTF8.GetBytes(_configuration["Crypting:IV"]);
 
                 ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
 
@@ -45,7 +48,7 @@ namespace site.Pages
                 }
             }
         }
-        public static string Decrypt(string cipherText)
+        public string Decrypt(string cipherText)
         {
             using (AesCryptoServiceProvider aesAlg = new AesCryptoServiceProvider())
             {
