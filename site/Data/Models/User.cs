@@ -1,4 +1,8 @@
-﻿namespace site.Data.Models
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.Security.Cryptography;
+using System.Text;
+
+namespace site.Data.Models
 {
     public class User
     {
