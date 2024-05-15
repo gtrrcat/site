@@ -7,7 +7,7 @@ namespace site.Pages
 {
     public class MessagerModel : PageModel
     {
-        private readonly Context _context;
+        public readonly Context _context;
 
         public MessagerModel(Context context)
         {

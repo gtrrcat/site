@@ -45,6 +45,18 @@
     </div>
 </form>
 
+
+
+@{
+    foreach (var a in Model._context.Message)
+    {
+        <p>@a.message</p>
+    }
+}
+
+
+
+
 @* <form  id="123" runat="server">
     <p>Имя:     <input pattern="[А-ЯЁ][а-яё]*" type="text" name="name" required/></p>
     <p>Фамилия: <input pattern="[А-ЯЁ][а-яё]*" type="text" name="surname" required/></p>

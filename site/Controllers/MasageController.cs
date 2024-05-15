@@ -8,24 +8,26 @@ using Microsoft.EntityFrameworkCore;
 using site.Data;
 using site.Data.Models;
 
-namespace site.Pages
+namespace site.Controllers
 {
-    public class MesagesController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class MasageController : Controller
     {
         private readonly Context _context;
 
-        public MesagesController(Context context)
+        public MasageController(Context context)
         {
             _context = context;
         }
 
-        // GET: Mesages
+        // GET: Masage
         public async Task<IActionResult> Index()
         {
-            return View(await _context.dvoiki.ToListAsync());
+            return View(await _context.Message.ToListAsync());
         }
 
-        // GET: Mesages/Details/5
+        // GET: Masage/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +35,39 @@ namespace site.Pages
                 return NotFound();
             }
 
-            var dva = await _context.dvoiki
+            var msg = await _context.Message
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (dva == null)
+            if (msg == null)
             {
                 return NotFound();
             }
 
-            return View(dva);
+            return View(msg);
         }
 
-        // GET: Mesages/Create
+        // GET: Masage/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Mesages/Create
+        // POST: Masage/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,imya")] dva dva)
+        public async Task<IActionResult> Create([Bind("Id,message,date,title,sender_id")] msg msg)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(dva);
+                _context.Add(msg);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(dva);
+            return View(msg);
         }
 
-        // GET: Mesages/Edit/5
+        // GET: Masage/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +75,22 @@ namespace site.Pages
                 return NotFound();
             }
 
-            var dva = await _context.dvoiki.FindAsync(id);
-            if (dva == null)
+            var msg = await _context.Message.FindAsync(id);
+            if (msg == null)
             {
                 return NotFound();
             }
-            return View(dva);
+            return View(msg);
         }
 
-        // POST: Mesages/Edit/5
+        // POST: Masage/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,imya")] dva dva)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,message,date,title,sender_id")] msg msg)
         {
-            if (id != dva.Id)
+            if (id != msg.Id)
             {
                 return NotFound();
             }
@@ -97,12 +99,12 @@ namespace site.Pages
             {
                 try
                 {
-                    _context.Update(dva);
+                    _context.Update(msg);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!dvaExists(dva.Id))
+                    if (!msgExists(msg.Id))
                     {
                         return NotFound();
                     }
@@ -113,10 +115,10 @@ namespace site.Pages
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(dva);
+            return View(msg);
         }
 
-        // GET: Mesages/Delete/5
+        // GET: Masage/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,34 +126,34 @@ namespace site.Pages
                 return NotFound();
             }
 
-            var dva = await _context.dvoiki
+            var msg = await _context.Message
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (dva == null)
+            if (msg == null)
             {
                 return NotFound();
             }
 
-            return View(dva);
+            return View(msg);
         }
 
-        // POST: Mesages/Delete/5
+        // POST: Masage/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var dva = await _context.dvoiki.FindAsync(id);
-            if (dva != null)
+            var msg = await _context.Message.FindAsync(id);
+            if (msg != null)
             {
-                _context.dvoiki.Remove(dva);
+                _context.Message.Remove(msg);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool dvaExists(int id)
+        private bool msgExists(int id)
         {
-            return _context.dvoiki.Any(e => e.Id == id);
+            return _context.Message.Any(e => e.Id == id);
         }
     }
 }
