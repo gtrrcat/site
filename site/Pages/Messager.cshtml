@@ -67,6 +67,50 @@
     <p><input type="submit"/></p>
 </form> *@
 
+
+<div id="messages">
+
+</div>
+
+<script>
+    function displayMessages(messages) {
+        const messagesContainer = document.getElementById('messages');
+
+        // Очистка контейнера сообщений перед отображением новых сообщений
+        messagesContainer.innerHTML = '';
+
+        // Добавление каждого сообщения в контейнер
+        messages.forEach(message => {
+            const messageElement = document.createElement('div');
+            messageElement.textContent = message.message; // Предполагается, что в объекте message есть свойство text с текстом сообщения
+            console.log('Сообщения успешно обновлены', message.message);
+            messagesContainer.appendChild(messageElement);
+        });
+    }
+
+    // Пример получения сообщений с сервера и их отображения
+    async function updateMessages() {
+        try {
+            const url = '/api/message'; // Замените это на URL вашего API
+            const response = await fetch(url);
+
+            if (!response.ok) {
+                throw new Error(`Ошибка HTTP: ${response.status}`);
+            }
+
+            const messages = await response.json();
+            displayMessages(messages); // Отображение полученных сообщений
+        } catch (error) {
+            console.error('Произошла ошибка при обновлении сообщений:', error);
+        }
+    }
+
+    // Выполнение функции updateMessages каждую секунду
+    setInterval(updateMessages, 1000);
+
+</script>
+
+
 <script>
     window.addEventListener("DOMContentLoaded", function() {
       [].forEach.call( document.querySelectorAll('.tel'), function(input) {
