@@ -20,4 +20,15 @@ namespace site.Data.Models
         public int Id { get; set; }
         public string imya { get; set; }
     }
+    public class msg
+    {
+        public int Id { get; set; }
+        public string message { get; set; }
+        public DateTime date { get; set; }
+        
+        public string title { get; set; }
+
+        public int sender_id { get; set; } = 1;
+
+    }
 }

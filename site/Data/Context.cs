@@ -8,6 +8,7 @@ namespace site.Data
         public Context(DbContextOptions<Context> options) : base(options) { }
         public DbSet<User> Users { get; set; } = default!;
         public DbSet<dva> dvoiki { get; set; } = default!;
+        public DbSet<msg> Message { get; set; } = default!;
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
