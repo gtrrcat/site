@@ -63,6 +63,7 @@
 
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <script>
     function displayMessages(messages) {
         const messagesContainer = document.getElementById('messages');
@@ -79,13 +80,13 @@
             detailsElement.classList.add('post__details');
 
             const anonElement = document.createElement('span');
-            anonElement.classList.add('post__detailpart', 'post__anon');
-            anonElement.textContent = message.sender_id;
+            anonElement.classList.add('post__detailpart', 'post__user');
+            anonElement.textContent = message.name;
             detailsElement.appendChild(anonElement);
 
             const timeElement = document.createElement('span');
             timeElement.classList.add('post__detailpart', 'post__time');
-            timeElement.textContent = message.date; // Предполагается, что у сообщения есть свойство timestamp с датой и временем
+            timeElement.textContent = moment(new Date(message.date)).format("YYYY-MM-DD HH:mm:ss"); // Предполагается, что у сообщения есть свойство timestamp с датой и временем
             detailsElement.appendChild(timeElement);
 
             messageElement.appendChild(detailsElement);

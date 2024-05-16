@@ -105,3 +105,8 @@ body {
 
     border: solid;
 }
+.post__detailpart {
+    padding: 0 6px 0 0 !important;
+    display: flex;
+    align-items: center;
+}

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -151,22 +153,32 @@ namespace site.Controllers
         //    return RedirectToAction(nameof(Index));
         //}
 
-        private List<msg> _messages = new List<msg>
-    {
-        new msg { Id = 1, message = "Привет, мир!" },
-        new msg { Id = 2, message = "Это сообщение 2" },
-        new msg { Id = 3, message = "И это сообщение 3" }
-    };
-
 
 
         [HttpGet]
         public IActionResult GetMessages()
         {
-            
-            var allmsg = _context.Message.ToList();
+
+
+            //public int Id { get; set; }
+            //public string message { get; set; }
+
+            //[Column(TypeName = "timestamp")]
+            //public DateTime date { get; set; }
+
+
+
+            //public int sender_id { get; set; } = 1;
+
+            var allmsg = _context.Message.Join(_context.Users, b => b.sender_id, a => a.Id, (table1, table2) => new
+            {
+                message = table1.message,
+                date = table1.date,
+                name = table2.Name
+            })
+                .ToList();
             return Ok(allmsg); // Возвращает все сообщения в виде JSON
-            
+
         }
 
         //private bool msgExists(int id)
