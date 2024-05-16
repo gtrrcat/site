@@ -31,7 +31,7 @@ namespace site.Data.Models
         
         
 
-        public int sender_id { get; set; } = 1;
+        public int sender_id { get; set; } = 2;
 
     }
 }
