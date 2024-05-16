@@ -74,3 +74,34 @@ body {
     height: 50px;
 
 }
+
+
+
+.post {
+    padding: 4px;
+    margin: 0;
+    word-break: break-word;
+    word-wrap: break-word;
+}
+.post__details {
+    font-size: .9em;
+    color: #5d5d5d;
+    color: var(--theme_default_alttext);
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+.post_type_reply {
+    /*max-width: 50vw;
+    background: #ddd;
+    background: var(--theme_default_postbg);
+    border: 1px solid var(--theme_default_border);
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    position: relative;
+    margin: 2px 0 4px 20px;
+    overflow: visible;*/
+
+    border: solid;
+}
