@@ -19,6 +19,8 @@
 </style>
 
 <form method="post">
+
+    
     
     <div class="form-group">
         <label asp-for="newmsg.message" class="control-label "></label>
@@ -26,11 +28,6 @@
         <span asp-validation-for="newmsg.message" class="text-danger"></span>
     </div>
 
-    <div class="form-group">
-        <label asp-for="newmsg.title" class="control-label "></label>
-        <input asp-for="newmsg.title" class="form-control"  required />
-        <span asp-validation-for="newmsg.title" class="text-danger"></span>
-    </div>
 
    
 
@@ -47,12 +44,6 @@
 
 
 
-@{
-    foreach (var a in Model._context.Message)
-    {
-        <p>@a.message</p>
-    }
-}
 
 
 
