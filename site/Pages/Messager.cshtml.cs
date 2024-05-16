@@ -21,7 +21,7 @@ namespace site.Pages
         
         public async Task<IActionResult> OnPostAsync()
         {
-           // newmsg.date= DateTime.Now;
+            newmsg.date = DateTime.Now;
             _context.Message.Add(newmsg);
              
              await _context.SaveChangesAsync();

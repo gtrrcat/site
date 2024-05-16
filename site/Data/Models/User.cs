@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -24,6 +25,8 @@ namespace site.Data.Models
     {
         public int Id { get; set; }
         public string message { get; set; }
+
+        [Column(TypeName = "timestamp")]
         public DateTime date { get; set; }
         
         
