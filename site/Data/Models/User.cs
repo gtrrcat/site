@@ -26,7 +26,7 @@ namespace site.Data.Models
         public string message { get; set; }
         public DateTime date { get; set; }
         
-        public string title { get; set; }
+        
 
         public int sender_id { get; set; } = 1;
 
