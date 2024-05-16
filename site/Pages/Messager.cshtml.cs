@@ -23,7 +23,8 @@ namespace site.Pages
         {
            // newmsg.date= DateTime.Now;
             _context.Message.Add(newmsg);
-            await _context.SaveChangesAsync();
+             
+             await _context.SaveChangesAsync();
             return RedirectToPage("./Index");
             
         }

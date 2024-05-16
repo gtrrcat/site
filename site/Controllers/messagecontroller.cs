@@ -158,10 +158,15 @@ namespace site.Controllers
         new msg { Id = 3, message = "И это сообщение 3" }
     };
 
+
+
         [HttpGet]
         public IActionResult GetMessages()
         {
-            return Ok(_messages); // Возвращает все сообщения в виде JSON
+            
+            var allmsg = _context.Message.ToList();
+            return Ok(allmsg); // Возвращает все сообщения в виде JSON
+            
         }
 
         //private bool msgExists(int id)
