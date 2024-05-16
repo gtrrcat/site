@@ -169,15 +169,23 @@ namespace site.Controllers
 
 
             //public int sender_id { get; set; } = 1;
-
-            var allmsg = _context.Message.Join(_context.Users, b => b.sender_id, a => a.Id, (table1, table2) => new
+            try
             {
-                message = table1.message,
-                date = table1.date,
-                name = table2.Name
-            })
-                .ToList();
-            return Ok(allmsg); // Возвращает все сообщения в виде JSON
+
+                var allmsg = _context.Message.Join(_context.Users, b => b.sender_id, a => a.Id, (table1, table2) => new
+                {
+                    message = table1.message,
+                    date = table1.date,
+                    name = table2.Name
+                })
+                    .ToList();
+                return Ok(allmsg); // Возвращает все сообщения в виде JSON
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine(ex.ToString());
+                return NotFound();
+            }
 
         }
 
