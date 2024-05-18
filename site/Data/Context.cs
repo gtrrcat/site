@@ -11,9 +11,10 @@ namespace site.Data
         public DbSet<msg> Message { get; set; } = default!;
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            base.OnConfiguring(optionsBuilder);
+            base.OnConfiguring(optionsBuilder); 
+
         }
     }
-    
-   
+
+
 }

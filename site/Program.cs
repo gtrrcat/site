@@ -8,8 +8,16 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<Context>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("Context")
-    ?? throw new InvalidOperationException("Connection string 'Context' not found.")));
+    options.UseNpgsql(new Npgsql.NpgsqlConnectionStringBuilder
+    {
+        ConnectionString = builder.Configuration.GetConnectionString("Context")
+            ?? throw new InvalidOperationException("Connection string 'Context' not found."),
+        MinPoolSize = 0,
+        MaxPoolSize = 100,
+        Pooling = true
+    }.ConnectionString
+    ));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
